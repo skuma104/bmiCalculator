@@ -1,0 +1,7 @@
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+sphinx-needs==2.0.0
+sphinxcontrib-plantuml==0.27
+matplotlib==3.8.2
+sphinx-tabs==3.4.4
+sphinx-test-reports==1.0.2
