@@ -1,0 +1,5 @@
+@import 'theme.css'; /* for the Read the Docs theme */
+
+.dataTables_wrapper .dataTables_filter {
+  float: none;
+}
