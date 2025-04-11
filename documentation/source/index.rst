@@ -10,5 +10,5 @@ Contents
 --------
 
 .. toctree::
-   testcases
    readme
+   testcases
