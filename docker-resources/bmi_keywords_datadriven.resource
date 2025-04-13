@@ -1,8 +1,4 @@
-# Create a directory for the modified resource file
-mkdir -p docker-resources
 
-# Create the modified resource file
-cat > docker-resources/bmi_keywords_datadriven.resource << 'EOF'
 *** Settings ***
 Documentation     Keywords for BMI calculator tests
 Library           OperatingSystem
@@ -60,4 +56,3 @@ an error should be reported
 the error should contain "${expected_text}"
     Should Contain    ${BMI_CATEGORY}    ${expected_text}    ignore_case=True
     ...    msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}
-EOF

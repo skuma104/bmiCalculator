@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  tests:
+    build: .
+    volumes:
+      - ./test-results:/app/test-results

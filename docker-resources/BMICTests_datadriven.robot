@@ -1,4 +1,4 @@
-cat > docker-resources/BMICTests_datadriven_docker.robot << 'EOF'
+
 *** Settings ***
 Documentation     Data-driven tests for BMI calculator
 Resource          /app/docker-resources/bmi_keywords_datadriven.resource
@@ -94,4 +94,3 @@ Verify BMI Error Case
     When I calculate BMI with height "${height}" cm and weight "${weight}" kg
     Then an error should be reported
     And the error should contain "${expected_error}"
-EOF
