@@ -12,8 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
 COPY source_code/ /app/source_code/
-COPY tests/ /app/tests/
-COPY docker-resources/ /app/docker-resources/
+COPY tests/robotTests /app/tests/
+COPY tests/resources/ /app/docker-resources/
 
 # Set environment variables
 ENV PYTHONPATH=/app
