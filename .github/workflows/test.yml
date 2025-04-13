@@ -7,6 +7,12 @@ on:
     branches: [ main, dev-branch ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  issues: read
+  checks: write
+  pull-requests: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -39,14 +45,14 @@ jobs:
       with:
         python-version: '3.9'
         
-    - name: Install Robot Framework and robotframework-junit
+    - name: Install Robot Framework
       run: |
-        pip install robotframework robotframework-junit
+        pip install robotframework
         
-    - name: Convert Robot Framework output to JUnit format
+    - name: Convert to JUnit format
       if: always()
       run: |
-        python -m robot.run --rerunfailed NONE --output NONE --report NONE --log NONE --xunit test-results/junit.xml test-results/output.xml
+        python -m robot.rebot --xunit test-results/junit.xml test-results/output.xml
         
     - name: Upload test results
       if: always()
