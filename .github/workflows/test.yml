@@ -34,6 +34,20 @@ jobs:
       run: |
         docker cp bmi-tests:/app/test-results ./test-results
         
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install Robot Framework and robotframework-junit
+      run: |
+        pip install robotframework robotframework-junit
+        
+    - name: Convert Robot Framework output to JUnit format
+      if: always()
+      run: |
+        python -m robot.run --rerunfailed NONE --output NONE --report NONE --log NONE --xunit test-results/junit.xml test-results/output.xml
+        
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
@@ -41,9 +55,9 @@ jobs:
         name: test-results
         path: test-results/
         
-    - name: Publish Robot Framework test results
+    - name: Publish JUnit Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
-        files: test-results/output.xml
+        files: test-results/junit.xml
         check_name: "Robot Framework Test Results"
