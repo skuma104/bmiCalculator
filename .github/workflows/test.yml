@@ -38,7 +38,7 @@ jobs:
     - name: Copy test results from container
       if: always()
       run: |
-        docker cp bmi-tests:/app/test-results ./test-results
+        docker cp bmi-tests:/app/test-results ./tests/test-results/robotDatadriven
         
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -52,18 +52,18 @@ jobs:
     - name: Convert to JUnit format
       if: always()
       run: |
-        python -m robot.rebot --xunit test-results/junit.xml test-results/output.xml
+        python -m robot.rebot --xunit tests/test-results/robotDatadriven/junit.xml tests/test-results/robotDatadriven/output.xml
         
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: test-results
-        path: test-results/
+        name: robotDatadriven
+        path: tests/test-results/robotDatadriven/
         
     - name: Publish JUnit Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
-        files: test-results/junit.xml
+        files: tests/test-results/robotDatadriven/junit.xml
         check_name: "Robot Framework Test Results"
