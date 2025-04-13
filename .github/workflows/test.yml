@@ -1,0 +1,49 @@
+name: BMI Calculator Tests
+
+on:
+  push:
+    branches: [ dev-branch ]
+  pull_request:
+    branches: [ dev-branch ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+      
+    - name: Build and run tests in Docker
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: false
+        load: true
+        tags: bmi-calculator-tests:latest
+        
+    - name: Run tests
+      run: |
+        docker run --name bmi-tests bmi-calculator-tests:latest
+        
+    - name: Copy test results from container
+      if: always()
+      run: |
+        docker cp bmi-tests:/app/test-results ./test-results
+        
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: test-results/
+        
+    - name: Publish Robot Framework test results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        files: test-results/output.xml
+        check_name: "Robot Framework Test Results"
