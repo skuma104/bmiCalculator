@@ -84,7 +84,7 @@ jobs:
         mkdir -p documentation/source/_static/test_results
         
         # Copy test results to Sphinx static directory
-        cp -r test-results/* documentation/source/_static/test_results/ || true
+        cp -r tests/test-results/robotDatadriven* documentation/source/_static/test_results/ || true
         
         # Create or update test_results.rst
         cat > documentation/source/test_results.rst << 'EOF'
@@ -106,22 +106,6 @@ jobs:
         if ! grep -q "test_results" documentation/source/index.rst; then
           # Find the toctree directive and add test_results to it
           sed -i '/.. toctree::/,/^$/s/^$/   test_results\n/' documentation/source/index.rst
-        fi
-    
-    - name: Update conf.py for test results
-      run: |
-        # Make sure html_static_path includes _static
-        if ! grep -q "html_static_path" documentation/source/conf.py; then
-          echo "html_static_path = ['_static']" >> documentation/source/conf.py
-        elif ! grep -q "_static" documentation/source/conf.py; then
-          sed -i "s/html_static_path = \[/html_static_path = ['_static', /" documentation/source/conf.py
-        fi
-        
-        # Make sure html_extra_path includes test results
-        if ! grep -q "html_extra_path" documentation/source/conf.py; then
-          echo "html_extra_path = ['_static/test_results']" >> documentation/source/conf.py
-        elif ! grep -q "_static/test_results" documentation/source/conf.py; then
-          sed -i "s/html_extra_path = \[/html_extra_path = ['_static/test_results', /" documentation/source/conf.py
         fi
     
     - name: Build Sphinx documentation
