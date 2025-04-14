@@ -2,10 +2,10 @@
 Documentation     Keywords for BMI calculator tests
 Library           OperatingSystem
 Library           String
-Library           ../../source_code/BMI_calculator.py
+Library           /app/source_code/BMI_calculator.py
 
 *** Variables ***
-${BMI_MODULE}     C:/Users/skuma104/OneDrive - Capgemini/Documents/Innovation-Project/BMI_calculator/source_code/BMI_calculator.py
+${BMI_MODULE}     /app/source_code/BMI_calculator.py
 
 *** Keywords ***
 Setup BMI Test
