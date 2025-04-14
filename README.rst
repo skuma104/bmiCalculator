@@ -8,7 +8,10 @@ in Python and uses the BMI formula to calculate the BMI.
 
 BMI = weight (kg) / (height (m) * height (m))
 
-And also here in GitHub Pages: https://bmicalculator-doc.readthedocs.io/en/latest/.
+The application is tested using Robot Framework and the tests are located in the 'tests/robotTests' directory.
+The test results can be found at 'tests/robotTests/test-results' directory. And also here in GitHub Pages:
+https://bmicalculator-doc.readthedocs.io/en/latest/. 
+The documentation is generated using Sphinx and the source files are located in the 'documentation/source' directory.
 
 If you want to build this documentation yourself, you can clone the archive and build it.
 You need to run the tests in 'tests/robotTests' before the documentation can be built.
