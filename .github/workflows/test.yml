@@ -133,20 +133,12 @@ jobs:
         
         python:
           install:
-            - requirements: documentation/requirements.txt
+            - requirements: documentation/source/requirements.txt
         
         sphinx:
           configuration: documentation/source/conf.py
         EOF
-        fi
-        
-        # Create requirements file for ReadTheDocs if it doesn't exist
-        if [ ! -f documentation/requirements.txt ]; then
-          cat > documentation/requirements.txt << 'EOF'
-        sphinx>=4.0.0
-        sphinx-rtd-theme>=1.0.0
-        EOF
-        fi
+        fi        
     
     - name: Commit and push documentation changes
       if: github.event_name != 'pull_request'
