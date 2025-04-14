@@ -71,10 +71,16 @@ jobs:
     - name: Install Sphinx and dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install sphinx sphinx-rtd-theme sphinx-needs
 
-        install:
-          - requirements: documentation/source/requirements.txt
+
+        # Check if requirements.txt exists in documentation/source folder
+        if [ -f documentation/source/requirements.txt ]; then
+          echo "Installing dependencies from documentation/source/requirements.txt"
+          pip install -r documentation/source/requirements.txt
+        else
+          echo "No requirements.txt found, installing minimal dependencies"
+          pip install robotframework sphinx sphinx-rtd-theme sphinx-needs
+        fi
     
     - name: Create test results page
       run: |
