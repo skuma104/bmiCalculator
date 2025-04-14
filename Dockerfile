@@ -19,4 +19,4 @@ COPY tests/resources/ /app/docker-resources/
 ENV PYTHONPATH=/app
 
 # Default command to run tests
-CMD ["robot", "--outputdir", "test-results", "/app/docker-resources/BMICTests_datadriven.robot"]
+CMD ["robot", "--outputdir", "/app/test-results", "/app/docker-resources/BMICTests_datadriven.robot"]
