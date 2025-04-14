@@ -106,11 +106,6 @@ jobs:
         `View Full Log <_static/test_results/log.html>`_
         EOF
         
-        # Make sure test_results.rst is included in the index
-        if ! grep -q "test_results" documentation/source/index.rst; then
-          # Find the toctree directive and add test_results to it
-          sed -i '/.. toctree::/,/^$/s/^$/   test_results\n/' documentation/source/index.rst
-        fi
     
     - name: Build Sphinx documentation
       run: |
