@@ -108,24 +108,24 @@ jobs:
         
     
     - name: Build Sphinx documentation
-    run: |
-          cd documentation
+      run: |
+        cd documentation
           
-          # Ensure static directories exist
-          mkdir -p source/_static/test_results
+        # Ensure static directories exist
+        mkdir -p source/_static/test_results
           
-          # Copy test results
-          cp -r ../tests/test-results/robotDatadriven/* source/_static/test_results/ || true
-          
-          # Build documentation with verbose output
-          sphinx-build -E -a -v -b html source build/html
-          
-          # Check if test_results.html was generated
-          if [ -f build/html/test_results.html ]; then
-            echo "test_results.html was successfully generated"
-          else
-            echo "WARNING: test_results.html was not generated!"
-          fi
+        # Copy test results
+        cp -r ../tests/test-results/robotDatadriven/* source/_static/test_results/ || true
+        
+        # Build documentation with verbose output
+        sphinx-build -E -a -v -b html source build/html
+        
+        # Check if test_results.html was generated
+        if [ -f build/html/test_results.html ]; then
+          echo "test_results.html was successfully generated"
+        else
+          echo "WARNING: test_results.html was not generated!"
+        fi
     
     #- name: Create or update .readthedocs.yaml
     #  run: |
