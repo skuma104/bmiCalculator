@@ -11,4 +11,5 @@ Contents
 
 .. toctree::
    readme
+   usage
    test_results

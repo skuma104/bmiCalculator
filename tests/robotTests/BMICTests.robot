@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation     Gherkin style tests for BMI calculator
-Resource          resources/bmi_keywords.resource
+Resource          ../resources/bmi_keywords.resource
 Test Setup        Setup BMI Test
 Test Teardown     Cleanup BMI Test
 
@@ -25,7 +25,7 @@ Scenario: Calculate BMI for Overweight Person
 
 Scenario: Calculate BMI for Obese Person
     Given the BMI calculator is available
-    When I calculate BMI with height "170" cm and weight "95" kg
+    When I calculate BMI with height "170" cm and weight "75" kg
     Then the BMI result should be "32.9"
     And the BMI category should be "Obese"
 
