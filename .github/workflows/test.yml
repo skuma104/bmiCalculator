@@ -40,14 +40,14 @@ jobs:
       run: |
         docker cp bmi-tests:/app/test-results ./tests/test-results/robotDatadriven/
         
-    #- name: Set up Python
-    #  uses: actions/setup-python@v4
-    #  with:
-    #    python-version: '3.9'
-    #    
-    #- name: Install Robot Framework
-    #  run: |
-    #    pip install robotframework
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install Robot Framework
+      run: |
+        pip install robotframework
         
     - name: Convert to JUnit format
       if: always()
