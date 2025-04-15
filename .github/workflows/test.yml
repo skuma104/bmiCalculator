@@ -147,13 +147,13 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
-        token: ${{ github.token }}
+        token: ${{ secrets.PAT_SK_GITHUB }}
         commit-message: Update documentation with latest test results
         title: 'Update documentation with latest test results'
         body: |
-          This PR updates the documentation with the latest test results.
+           This PR updates the documentation with the latest test results.
         
-          Automated changes by GitHub Action.
+           Automated changes by GitHub Action.
         branch: update-docs
         base: dev-branch
 
