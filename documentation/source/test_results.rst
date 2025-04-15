@@ -1,11 +1,12 @@
+Test Results
+===============
 
-Test Cases 
-================
+Latest Test Results
+---------------------
 
-Test Results of automated tests
---------------------------------------
+These are the latest test results for the BMI Calculator project, generated on $(date).
 
 .. test-results:: ../../tests/test-results/robotDatadriven/report.xml
 
-
+`View Full Log <_statica/test_results/log.html>`_
 

@@ -82,29 +82,29 @@ jobs:
           pip install robotframework sphinx sphinx-rtd-theme sphinx-needs
         fi
     
-    - name: Create test results page
-      run: |
-        # Create directory for test results in docs
-        mkdir -p documentation/source/_static/test_results
-        
-        # Copy test results to Sphinx static directory
-        cp -r tests/test-results/robotDatadriven* documentation/source/_static/test_results/ || false
+    #- name: Create test results page
+    #  run: |
+    #    ## Create directory for test results in docs
+        #mkdir -p documentation/source/_statica/test_results
+        #
+        ## Copy test results to Sphinx static directory
+        #cp -r tests/test-results/robotDatadriven* documentation/source/_statica/test_results/ || false
         
         # Create or update test_results.rst
-        cat > documentation/source/test_results.rst << 'EOF'
-        Test Results
-        ===========
-        
-        Latest Test Results
-        -----------------
-        
-        These are the latest test results for the BMI Calculator project, generated on $(date).
-        
-        .. raw:: html
-           :file: _static/test_results/report.html
-        
-        `View Full Log <_static/test_results/log.html>`_
-        EOF
+        #cat > documentation/source/test_results.rst << 'EOF'
+        #Test Results
+        #===============
+        #
+        #Latest Test Results
+        #---------------------
+        #
+        #These are the latest test results for the BMI Calculator project, generated on $(date).
+        #
+        #.. raw:: html
+        #   :file: _statica/test_results/report.html
+        #
+        #`View Full Log <_statica/test_results/log.html>`_
+        #EOF
         
     
     - name: Build Sphinx documentation
