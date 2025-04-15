@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BMICTests datadriven" tests="2" errors="0" failures="0" skipped="0" time="0.184" timestamp="2025-04-10T13:41:37.734541">
+<testcase classname="BMICTests datadriven" name="Valid BMI Calculations Using Template" time="0.044">
+</testcase>
+<testcase classname="BMICTests datadriven" name="Error Cases Using Template" time="0.068">
+</testcase>
+<properties>
+<property name="Documentation" value="Data-driven tests for BMI calculator"/>
+</properties>
+</testsuite>

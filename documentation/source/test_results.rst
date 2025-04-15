@@ -1,11 +1,12 @@
+Test Results
+===========
 
-Test Cases 
-================
+Latest Test Results
+-----------------
 
-Test Results of automated tests
---------------------------------------
+These are the latest test results for the BMI Calculator project, generated on $(date).
 
-.. test-results:: ../../tests/test-results/robotGherkin/report.xml
+.. raw:: html
+   :file: _static/test_results/report.html
 
-
-
+`View Full Log <_static/test_results/log.html>`_
