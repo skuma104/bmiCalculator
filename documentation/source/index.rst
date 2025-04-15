@@ -11,4 +11,4 @@ Contents
 
 .. toctree::
    readme
-   testcases
+   test_results
