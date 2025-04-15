@@ -142,7 +142,7 @@ jobs:
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add documentation/ .readthedocs.yaml
         git commit -m "Update documentation with latest test results [skip ci]" || echo "No changes to commit"
-        git remote set-url origin https://x-access-token:${{ secrets.PAT_GITHUB }}@github.com/${{ github.repository }}.git
+        git remote set-url origin https://x-access-token:${{secrets.PAT_SK_GITHUB }}@github.com/${{ github.repository }}.git
         git push
     
     - name: Upload documentation as artifact
@@ -158,8 +158,8 @@ jobs:
         sudo apt-get update && sudo apt-get install -y curl
         
         # Trigger ReadTheDocs build using webhook
-        if [ -n "${{ secrets.READTHEDOCS_WEBHOOK_URL }}" ]; then
-          curl -X POST ${{ secrets.READTHEDOCS_WEBHOOK_URL }}
+        if [ -n "${{secrets.READTHEDOCS_WEBHOOK_URL}}" ]; then
+          curl -X POST ${{secrets.READTHEDOCS_WEBHOOK_URL }}
           echo "ReadTheDocs build triggered"
         else
           echo "No ReadTheDocs webhook URL provided. Skipping trigger."
