@@ -127,18 +127,25 @@ jobs:
           echo "WARNING: test_results.html was not generated!"
         fi
       
-    
     - name: Commit and push documentation changes
-      if: github.event_name != 'pull_request'
-      run: |
-          git config --local user.name 'skuma104'  ##'github-actions[bot]'
-          git config --local user.email 'shiv.c.kumar@capgemini.com'   ##github-actions[bot]@users.noreply.github.com'
-          git config --get user.name
-          git config --get user.email
-          git add documentation/ tests/test-results
-          git commit -m "Update documentation with latest test results [skip ci]" || echo "No changes to commit"
-          git remote set-url origin https://x-access-token:${{secrets.PAT_TOKEN}}@github.com/${{github.repository}}.git
-          git push origin dev-branch
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+          commit_message: "Update documentation with latest test results [skip ci]"
+          file_pattern: "documentation/ .readthedocs.yaml"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          
+    #- name: Commit and push documentation changes
+    #  if: github.event_name != 'pull_request'
+    #  run: |
+    #      git config --local user.name 'github-actions[bot]'
+    #      git config --local user.email github-actions[bot]@users.noreply.github.com'
+    #      git config --get user.name
+    #      git config --get user.email
+    #      git add documentation/ tests/test-results
+    #      git commit -m "Update documentation with latest test results [skip ci]" || echo "No changes to commit"
+    #      git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
+    #      git push origin dev-branch
   
   #  - name: Create Pull Request
   #    uses: peter-evans/create-pull-request@v5
