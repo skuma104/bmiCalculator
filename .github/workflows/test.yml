@@ -137,7 +137,7 @@ jobs:
           git config --get user.email
           git add documentation/ tests/test-results
           git commit -m "Update documentation with latest test results [skip ci]" || echo "No changes to commit"
-          git remote set-url origin https://x-access-token:${{ secrets.PAT_SK_GITHUB }}@github.com/${{ github.repository }}.git
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin dev-branch
   
   #  - name: Create Pull Request
