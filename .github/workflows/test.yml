@@ -130,11 +130,14 @@ jobs:
     - name: Commit and push documentation changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-          commit_message: "Update documentation with latest test results [skip ci]"
-          file_pattern: "documentation/ .readthedocs.yaml"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
-          
+        commit_message: "Update documentation with latest test results [skip ci]"
+        file_pattern: "documentation/ .readthedocs.yaml"
+        commit_user_name: "GitHub Actions"
+        commit_user_email: "actions@github.com"
+        commit_options: "--no-verify"
+        repository: .
+        token: ${{ secrets.PAT_TOKEN }}  # Use your PAT instead of the default GITHUB_TOKEN
+
     #- name: Commit and push documentation changes
     #  if: github.event_name != 'pull_request'
     #  run: |
