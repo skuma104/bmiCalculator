@@ -126,45 +126,32 @@ jobs:
         else
           echo "WARNING: test_results.html was not generated!"
         fi
+      
     
-    ###- name: Create or update .readthedocs.yaml
-    #  run: |
-    #    if [ ! -f .readthedocs.yaml ]; then
-    #      cat > .readthedocs.yaml << 'EOF'
-    #    # .readthedocs.yaml
-    #    version: 2
-    #    
-    #    build:
-    #      os: ubuntu-22.04
-    #      tools:
-    #        python: "3.9"
-    #        
-    #    sphinx:
-    #      configuration: documentation/source/conf.py
-    #    EOF
-    #    fi        
-    
-    #- name: Commit and push documentation changes
-    #  if: github.event_name != 'pull_request'
-    #  run: |
-    #      git config --global user.name 'github-actions[bot]'
-    #      git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-    #      git add documentation/ .readthedocs.yaml
-    #      git commit -m "Update documentation with latest test results [skip ci]" || echo "No changes to commit"
-    #      git remote set-url origin https://x-access-token:${{ secrets.PAT_SK_GITHUB }}@github.com/${{ github.repository }}.git
-    #      git push
-    #- name: Create Pull Request
-    #  uses: peter-evans/create-pull-request@v5
-    #  with:
-    #    token: ${{ secrets.PAT_SK_GITHUB }}
-    #    commit-message: Update documentation with latest test results
-    #    title: 'Update documentation with latest test results'
-    #    body: |
-    #       This PR updates the documentation with the latest test results.
-    #    
-    #       Automated changes by GitHub Action.
-    #    branch: update-docs
-    #    base: dev-branch
+    - name: Commit and push documentation changes
+      if: github.event_name != 'pull_request'
+      run: |
+          git config --local user.name 'github-actions[bot]'
+          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --get user.name
+          git config --get user.email
+          git add documentation/ test/test-results
+          git commit -m "Update documentation with latest test results [skip ci]" || echo "No changes to commit"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_SK_GITHUB }}@github.com/${{ github.repository }}.git
+          git push origin dev-branch
+  
+  #  - name: Create Pull Request
+  #    uses: peter-evans/create-pull-request@v5
+  #    with:
+  #      token: ${{ secrets.PAT_SK_GITHUB }}
+  #      commit-message: Update documentation with latest test results
+  #      title: 'Update documentation with latest test results'
+  #      body: |
+  #         This PR updates the documentation with the latest test results.
+  #      
+  #         Automated changes by GitHub Action.
+  #      branch: update-docs
+  #      base: dev-branch
 
     - name: Upload documentation as artifact
       uses: actions/upload-artifact@v4
