@@ -131,8 +131,8 @@ jobs:
     - name: Commit and push documentation changes
       if: github.event_name != 'pull_request'
       run: |
-          git config --local user.name 'github-actions[bot]'
-          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --local user.name 'skuma104'  ##'github-actions[bot]'
+          git config --local user.email 'shiv.c.kumar@capgemini.com'   ##github-actions[bot]@users.noreply.github.com'
           git config --get user.name
           git config --get user.email
           git add documentation/ tests/test-results
