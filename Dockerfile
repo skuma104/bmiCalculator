@@ -12,7 +12,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
 COPY source_code/ /app/source_code/
-COPY tests/robotTests /app/tests/
+
+# Create the test file
+COPY tests/robotTests/ /app/docker-resources/
 COPY tests/resources/ /app/docker-resources/
 
 # Set environment variables
