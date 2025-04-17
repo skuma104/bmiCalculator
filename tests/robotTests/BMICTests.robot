@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation     Gherkin style tests for BMI calculator
-Resource          ../resources/bmi_keywords.resource
+Resource          /app/docker-resources/bmi_keywords.resource
 Test Setup        Setup BMI Test
 Test Teardown     Cleanup BMI Test
 
