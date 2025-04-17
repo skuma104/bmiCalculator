@@ -39,7 +39,8 @@ jobs:
     - name: Copy test results from container
       if: always()
       run: |
-        docker cp bmi-tests:/app/test-results ./tests/test-results/robotDatadriven/
+        docker cp bmi-tests:/app/test-results/robotDatadriven ./tests/test-results/robotDatadriven/
+        docker cp bmi-tests:/app/test-results/robotGherkin ./tests/test-results/robotGherkin/
         
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -54,19 +55,22 @@ jobs:
       if: always()
       run: |
         python -m robot.rebot --xunit ./tests/test-results/robotDatadriven/junit.xml ./tests/test-results/robotDatadriven/output.xml
+        python -m robot.rebot --xunit ./tests/test-results/robotGherkin/junit.xml ./tests/test-results/robotGherkin/output.xml
         
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: ./tests/test-results/robotDatadriven/
+        path: ./tests/test-results
         
     - name: Publish JUnit Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
-        files: ./tests/test-results/robotDatadriven/junit.xml
+        files: |
+          ./tests/test-results/robotDatadriven/junit.xml
+          ./tests/test-results/robotGherkin/junit.xml
         check_name: "Robot Framework Test Results"
 
     - name: Install Sphinx and dependencies
@@ -88,10 +92,12 @@ jobs:
         cd documentation
           
         # Ensure static directories exist
-        mkdir -p source/_static/test_results
+        mkdir -p source/_static/test_results/robotDatadriven
+        mkdir -p source/_static/test_results/robotGherkin
           
         # Copy test results
-        cp -r ../tests/test-results/robotDatadriven/* source/_static/test_results/ || true
+        cp -r ../tests/test-results/robotDatadriven/* source/_static/test_results/robotDatadriven || true
+        cp -r ../tests/test-results/robotGherkin/* source/_static/test_results//robotGherkin || true
         
         # Build documentation with verbose output
         sphinx-build -E -a -v -b html source build/html

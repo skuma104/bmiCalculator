@@ -8,5 +8,7 @@ These are the latest test results for the BMI Calculator project, generated on $
 
 .. test-results:: ../../tests/test-results/robotDatadriven/report.xml
 
-`View Full Log <_statica/test_results/log.html>`_
+.. test-results:: ../../tests/test-results/robotGherkin/report.xml
+
+`View Full Log <_static/test_results/log.html>`_
 
