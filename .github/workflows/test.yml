@@ -82,31 +82,6 @@ jobs:
           pip install robotframework sphinx sphinx-rtd-theme sphinx-needs
         fi
     
-    #- name: Create test results page
-    #  run: |
-    #    ## Create directory for test results in docs
-        #mkdir -p documentation/source/_statica/test_results
-        #
-        ## Copy test results to Sphinx static directory
-        #cp -r tests/test-results/robotDatadriven* documentation/source/_statica/test_results/ || false
-        
-        # Create or update test_results.rst
-        #cat > documentation/source/test_results.rst << 'EOF'
-        #Test Results
-        #===============
-        #
-        #Latest Test Results
-        #---------------------
-        #
-        #These are the latest test results for the BMI Calculator project, generated on $(date).
-        #
-        #.. raw:: html
-        #   :file: _statica/test_results/report.html
-        #
-        #`View Full Log <_statica/test_results/log.html>`_
-        #EOF
-        
-    
     - name: Build Sphinx documentation
       run: |
         cd documentation
@@ -127,17 +102,6 @@ jobs:
           echo "WARNING: test_results.html was not generated!"
         fi
       
-    #- name: Commit and push documentation changes
-    #  uses: stefanzweifel/git-auto-commit-action@v4
-    #  with:
-    #    commit_message: "Update documentation with latest test results [skip ci]"
-    #    file_pattern: "documentation/ .readthedocs.yaml"
-    #    commit_user_name: "GitHub Actions"
-    #    commit_user_email: "actions@github.com"
-    #    commit_options: "--no-verify"
-    #    repository: .
-    #    token: ${{ secrets.PAT_TOKEN }}  # Use your PAT instead of the default GITHUB_TOKEN
-
     - name: Commit and push documentation changes
       if: github.event_name != 'pull_request'
       run: |
@@ -150,18 +114,6 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin dev-branch
   
-  #  - name: Create Pull Request
-  #    uses: peter-evans/create-pull-request@v5
-  #    with:
-  #      token: ${{ secrets.PAT_SK_GITHUB }}
-  #      commit-message: Update documentation with latest test results
-  #      title: 'Update documentation with latest test results'
-  #      body: |
-  #         This PR updates the documentation with the latest test results.
-  #      
-  #         Automated changes by GitHub Action.
-  #      branch: update-docs
-  #      base: dev-branch
 
     - name: Upload documentation as artifact
       uses: actions/upload-artifact@v4
