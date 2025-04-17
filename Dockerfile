@@ -12,13 +12,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
 COPY source_code/ /app/source_code/
-
-# Create the test file
-COPY tests/robotTests/ /app/docker-resources/robotTests
-COPY tests/resources/ /app/docker-resources/resources
+COPY tests/robotTests /app/tests/
+COPY tests/resources/ /app/docker-resources/
 
 # Set environment variables
 ENV PYTHONPATH=/app
 
 # Default command to run tests
-CMD ["sh", "-c", "robot --outputdir /app/test-results/robotDatadriven /app/docker-resources/robotTests/BMICTests_datadriven.robot && robot --outputdir /app/test-results/robotGherkin /app/docker-resources/robotTests/BMICTests.robot"]
+CMD ["sh", "-c", "robot --outputdir /app/test-results/robotDatadriven /app/tests/BMICTests_datadriven.robot && robot --outputdir /app/test-results/robotGherkin /app/tests/BMICTests.robot"]
