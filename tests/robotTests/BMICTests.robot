@@ -25,7 +25,7 @@ Scenario: Calculate BMI for Overweight Person
 
 Scenario: Calculate BMI for Obese Person
     Given the BMI calculator is available
-    When I calculate BMI with height "170" cm and weight "75" kg
+    When I calculate BMI with height "170" cm and weight "95" kg
     Then the BMI result should be "32.9"
     And the BMI category should be "Obese"
 
