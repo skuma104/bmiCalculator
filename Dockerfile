@@ -19,4 +19,4 @@ COPY tests/resources/ /app/docker-resources/
 ENV PYTHONPATH=/app
 
 # Default command to run tests
-CMD ["robot", "--outputdir", "/app/test-results", "/app/docker-resources/BMICTests_datadriven.robot"]
+CMD ["sh", "-c", "robot --outputdir /app/test-results/robotDatadriven /app/docker-resources/BMICTests_datadriven.robot && robot --outputdir /app/test-results/robotGherkin /app/docker-resources/BMICTests.robot"]
