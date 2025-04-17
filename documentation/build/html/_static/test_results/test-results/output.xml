@@ -1,0 +1,1375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.9.22 on linux)" generated="2025-04-17T07:52:08.010400" rpa="false" schemaversion="5">
+<suite id="s1" name="BMICTests datadriven" source="/app/tests/BMICTests_datadriven.robot">
+<test id="s1-t1" name="Valid BMI Calculations Using Template" line="9">
+<kw name="Setup BMI Test" owner="bmi_keywords_datadriven" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-17T07:52:08.054307" level="INFO" html="true">File '&lt;a href="file:///app/source_code/BMI_calculator.py"&gt;/app/source_code/BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.053876" elapsed="0.000514"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.054651" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.054540" elapsed="0.000159"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.053211" elapsed="0.001552"/>
+</kw>
+<kw name="Verify Valid BMI Calculation">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.055678" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.055576" elapsed="0.000151"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.055327" elapsed="0.000461"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.056546" level="INFO">${result} = (22.9, 'Normal weight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.056326" elapsed="0.000253"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.057529" level="INFO">${BMI_VALUE} = 22.9</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.056709" elapsed="0.000870"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.058439" level="INFO">${BMI_CATEGORY} = Normal weight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.057728" elapsed="0.000759"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.058757" level="INFO">BMI Result: (22.9, 'Normal weight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.058604" elapsed="0.000203"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.059079" level="INFO">BMI Value: 22.9</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.058917" elapsed="0.000212"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.059371" level="INFO">BMI Category: Normal weight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.059236" elapsed="0.000179"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.055964" elapsed="0.003511"/>
+</kw>
+<kw name="Then the BMI result should be &quot;${expected_bmi}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.060239" level="INFO">${actual_bmi} = 22.9</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.059968" elapsed="0.000300"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.060615" level="INFO">${expected} = 22.9</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.060397" elapsed="0.000246"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.061067" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.060759" elapsed="0.000372"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.059635" elapsed="0.001563"/>
+</kw>
+<kw name="And the BMI category should be &quot;${expected_category}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.061690" elapsed="0.000311"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.061343" elapsed="0.000754"/>
+</kw>
+<arg>175</arg>
+<arg>70</arg>
+<arg>22.9</arg>
+<arg>Normal weight</arg>
+<doc>Verifies a valid BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.054918" elapsed="0.007229"/>
+</kw>
+<kw name="Verify Valid BMI Calculation">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.063124" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.062994" elapsed="0.000180"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.062656" elapsed="0.000577"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.063953" level="INFO">${result} = (17.0, 'Underweight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.063750" elapsed="0.000231"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.064365" level="INFO">${BMI_VALUE} = 17.0</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.064133" elapsed="0.000277"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.064736" level="INFO">${BMI_CATEGORY} = Underweight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.064523" elapsed="0.000256"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.065028" level="INFO">BMI Result: (17.0, 'Underweight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.064889" elapsed="0.000259"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.065402" level="INFO">BMI Value: 17.0</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.065261" elapsed="0.000187"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.065687" level="INFO">BMI Category: Underweight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.065553" elapsed="0.000178"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.063402" elapsed="0.002385"/>
+</kw>
+<kw name="Then the BMI result should be &quot;${expected_bmi}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.066505" level="INFO">${actual_bmi} = 17.0</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.066277" elapsed="0.000257"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.066872" level="INFO">${expected} = 17.0</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.066658" elapsed="0.000241"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.067299" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.067012" elapsed="0.000342"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.065940" elapsed="0.001480"/>
+</kw>
+<kw name="And the BMI category should be &quot;${expected_category}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.067874" elapsed="0.000324"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.067562" elapsed="0.000705"/>
+</kw>
+<arg>180</arg>
+<arg>55</arg>
+<arg>17.0</arg>
+<arg>Underweight</arg>
+<doc>Verifies a valid BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.062298" elapsed="0.006016"/>
+</kw>
+<kw name="Verify Valid BMI Calculation">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.069210" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.069111" elapsed="0.000146"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.068818" elapsed="0.000496"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.070017" level="INFO">${result} = (27.5, 'Overweight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.069815" elapsed="0.000245"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.070404" level="INFO">${BMI_VALUE} = 27.5</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.070180" elapsed="0.000269"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.070769" level="INFO">${BMI_CATEGORY} = Overweight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.070561" elapsed="0.000251"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.071073" level="INFO">BMI Result: (27.5, 'Overweight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.070922" elapsed="0.000198"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.071365" level="INFO">BMI Value: 27.5</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.071231" elapsed="0.000177"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.071639" level="INFO">BMI Category: Overweight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.071510" elapsed="0.000172"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.069477" elapsed="0.002262"/>
+</kw>
+<kw name="Then the BMI result should be &quot;${expected_bmi}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.072437" level="INFO">${actual_bmi} = 27.5</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.072215" elapsed="0.000250"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.072794" level="INFO">${expected} = 27.5</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.072585" elapsed="0.000235"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.073229" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.072938" elapsed="0.000346"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.071889" elapsed="0.001459"/>
+</kw>
+<kw name="And the BMI category should be &quot;${expected_category}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.073800" elapsed="0.000315"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.073486" elapsed="0.000697"/>
+</kw>
+<arg>165</arg>
+<arg>75</arg>
+<arg>27.5</arg>
+<arg>Overweight</arg>
+<doc>Verifies a valid BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.068458" elapsed="0.005771"/>
+</kw>
+<kw name="Verify Valid BMI Calculation">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.075267" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.075166" elapsed="0.000149"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.074740" elapsed="0.000633"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.076093" level="INFO">${result} = (32.9, 'Obese')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.075880" elapsed="0.000242"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.076471" level="INFO">${BMI_VALUE} = 32.9</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.076237" elapsed="0.000278"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.076839" level="INFO">${BMI_CATEGORY} = Obese</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.076627" elapsed="0.000254"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.077140" level="INFO">BMI Result: (32.9, 'Obese')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.076987" elapsed="0.000198"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.077441" level="INFO">BMI Value: 32.9</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.077304" elapsed="0.000181"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.077743" level="INFO">BMI Category: Obese</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.077604" elapsed="0.000183"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.075537" elapsed="0.002307"/>
+</kw>
+<kw name="Then the BMI result should be &quot;${expected_bmi}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.078559" level="INFO">${actual_bmi} = 32.9</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.078336" elapsed="0.000251"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.078929" level="INFO">${expected} = 32.9</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.078709" elapsed="0.000247"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.079360" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.079089" elapsed="0.000325"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.077996" elapsed="0.001483"/>
+</kw>
+<kw name="And the BMI category should be &quot;${expected_category}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.079935" elapsed="0.000324"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.079619" elapsed="0.000710"/>
+</kw>
+<arg>170</arg>
+<arg>95</arg>
+<arg>32.9</arg>
+<arg>Obese</arg>
+<doc>Verifies a valid BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.074377" elapsed="0.005998"/>
+</kw>
+<kw name="Verify Valid BMI Calculation">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.081251" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.081154" elapsed="0.000144"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.080889" elapsed="0.000467"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.082063" level="INFO">${result} = (18.5, 'Normal weight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.081851" elapsed="0.000242"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.082434" level="INFO">${BMI_VALUE} = 18.5</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.082209" elapsed="0.000269"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.082800" level="INFO">${BMI_CATEGORY} = Normal weight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.082591" elapsed="0.000252"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.083102" level="INFO">BMI Result: (18.5, 'Normal weight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.082949" elapsed="0.000199"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.083383" level="INFO">BMI Value: 18.5</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.083251" elapsed="0.000182"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.083662" level="INFO">BMI Category: Normal weight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.083534" elapsed="0.000171"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.081518" elapsed="0.002243"/>
+</kw>
+<kw name="Then the BMI result should be &quot;${expected_bmi}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.084470" level="INFO">${actual_bmi} = 18.5</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.084234" elapsed="0.000264"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.084883" level="INFO">${expected} = 18.5</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.084664" elapsed="0.000247"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.085312" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.085026" elapsed="0.000340"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.083910" elapsed="0.001521"/>
+</kw>
+<kw name="And the BMI category should be &quot;${expected_category}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.085884" elapsed="0.000439"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.085572" elapsed="0.000850"/>
+</kw>
+<arg>170</arg>
+<arg>53.5</arg>
+<arg>18.5</arg>
+<arg>Normal weight</arg>
+<doc>Verifies a valid BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.080534" elapsed="0.005954"/>
+</kw>
+<kw name="Verify Valid BMI Calculation">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.087700" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.087485" elapsed="0.000264"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.087224" elapsed="0.000588"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.088557" level="INFO">${result} = (25.0, 'Overweight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.088356" elapsed="0.000229"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.088925" level="INFO">${BMI_VALUE} = 25.0</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.088701" elapsed="0.000269"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.089324" level="INFO">${BMI_CATEGORY} = Overweight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.089107" elapsed="0.000260"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.089613" level="INFO">BMI Result: (25.0, 'Overweight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.089474" elapsed="0.000184"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.089894" level="INFO">BMI Value: 25.0</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.089761" elapsed="0.000178"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.090206" level="INFO">BMI Category: Overweight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.090040" elapsed="0.000211"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.087978" elapsed="0.002331"/>
+</kw>
+<kw name="Then the BMI result should be &quot;${expected_bmi}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.091009" level="INFO">${actual_bmi} = 25.0</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.090781" elapsed="0.000257"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.091420" level="INFO">${expected} = 25.0</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.091197" elapsed="0.000251"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.091830" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.091563" elapsed="0.000322"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.090462" elapsed="0.001488"/>
+</kw>
+<kw name="And the BMI category should be &quot;${expected_category}&quot;" owner="bmi_keywords_datadriven" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.092439" elapsed="0.000313"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.092122" elapsed="0.000698"/>
+</kw>
+<arg>170</arg>
+<arg>72.2</arg>
+<arg>25.0</arg>
+<arg>Overweight</arg>
+<doc>Verifies a valid BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.086692" elapsed="0.006174"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords_datadriven" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.093380" elapsed="0.000093"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.093103" elapsed="0.000426"/>
+</kw>
+<doc>Tests valid BMI calculations using a test template</doc>
+<status status="PASS" start="2025-04-17T07:52:08.052074" elapsed="0.041492"/>
+</test>
+<test id="s1-t2" name="Error Cases Using Template" line="20">
+<kw name="Setup BMI Test" owner="bmi_keywords_datadriven" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-17T07:52:08.094980" level="INFO" html="true">File '&lt;a href="file:///app/source_code/BMI_calculator.py"&gt;/app/source_code/BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.094704" elapsed="0.000332"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.095283" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.095182" elapsed="0.000146"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.094455" elapsed="0.000931"/>
+</kw>
+<kw name="Verify BMI Error Case">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.096545" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.096441" elapsed="0.000151"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.096210" elapsed="0.000442"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.097347" level="INFO">${result} = (None, 'Error: Please enter your height')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.097156" elapsed="0.000219"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.098187" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.097490" elapsed="0.000745"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.099004" level="INFO">${BMI_CATEGORY} = Error: Please enter your height</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.098352" elapsed="0.000712"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.099324" level="INFO">BMI Result: (None, 'Error: Please enter your height')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.099183" elapsed="0.000187"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.099609" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.099476" elapsed="0.000179"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.100012" level="INFO">BMI Category: Error: Please enter your height</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.099764" elapsed="0.000311"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.096818" elapsed="0.003318"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords_datadriven">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.100534" elapsed="0.000273"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.100924" elapsed="0.000245"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.100276" elapsed="0.000961"/>
+</kw>
+<kw name="And the error should contain &quot;${expected_error}&quot;" owner="bmi_keywords_datadriven" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.101682" elapsed="0.000307"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.101377" elapsed="0.000699"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>70</arg>
+<arg>Please enter your height</arg>
+<doc>Verifies an error case in BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.095564" elapsed="0.006561"/>
+</kw>
+<kw name="Verify BMI Error Case">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.103262" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.103163" elapsed="0.000146"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.102887" elapsed="0.000481"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.104073" level="INFO">${result} = (None, 'Error: Please enter your weight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.103867" elapsed="0.000235"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.104442" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.104224" elapsed="0.000262"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.104804" level="INFO">${BMI_CATEGORY} = Error: Please enter your weight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.104596" elapsed="0.000250"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.105101" level="INFO">BMI Result: (None, 'Error: Please enter your weight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.104951" elapsed="0.000221"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.105526" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.105326" elapsed="0.000267"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.105953" level="INFO">BMI Category: Error: Please enter your weight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.105752" elapsed="0.000271"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.103531" elapsed="0.002608"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords_datadriven">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.106676" elapsed="0.000344"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.107185" elapsed="0.000271"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.106328" elapsed="0.001214"/>
+</kw>
+<kw name="And the error should contain &quot;${expected_error}&quot;" owner="bmi_keywords_datadriven" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.108160" elapsed="0.000379"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.107712" elapsed="0.000918"/>
+</kw>
+<arg>175</arg>
+<arg>${EMPTY}</arg>
+<arg>Please enter your weight</arg>
+<doc>Verifies an error case in BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.102267" elapsed="0.006427"/>
+</kw>
+<kw name="Verify BMI Error Case">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.109752" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.109653" elapsed="0.000148"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.109389" elapsed="0.000473"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.110624" level="INFO">${result} = (None, 'Error: Please enter valid numbers')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.110419" elapsed="0.000232"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.110988" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.110769" elapsed="0.000264"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.111404" level="INFO">${BMI_CATEGORY} = Error: Please enter valid numbers</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.111190" elapsed="0.000257"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.111818" level="INFO">BMI Result: (None, 'Error: Please enter valid numbers')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.111558" elapsed="0.000307"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.112128" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.111969" elapsed="0.000205"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.112412" level="INFO">BMI Category: Error: Please enter valid numbers</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.112278" elapsed="0.000177"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.110038" elapsed="0.002473"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords_datadriven">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.112900" elapsed="0.000295"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.113310" elapsed="0.000221"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.112646" elapsed="0.000949"/>
+</kw>
+<kw name="And the error should contain &quot;${expected_error}&quot;" owner="bmi_keywords_datadriven" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.114031" elapsed="0.000333"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.113731" elapsed="0.000704"/>
+</kw>
+<arg>abc</arg>
+<arg>70</arg>
+<arg>Please enter valid numbers</arg>
+<doc>Verifies an error case in BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.108876" elapsed="0.005604"/>
+</kw>
+<kw name="Verify BMI Error Case">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.115343" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.115244" elapsed="0.000147"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.114958" elapsed="0.000491"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.116178" level="INFO">${result} = (None, 'Error: Please enter valid numbers')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.115945" elapsed="0.000262"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.116542" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.116326" elapsed="0.000261"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.116913" level="INFO">${BMI_CATEGORY} = Error: Please enter valid numbers</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.116698" elapsed="0.000258"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.117230" level="INFO">BMI Result: (None, 'Error: Please enter valid numbers')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.117088" elapsed="0.000187"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.117511" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.117378" elapsed="0.000176"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.117791" level="INFO">BMI Category: Error: Please enter valid numbers</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.117660" elapsed="0.000175"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.115610" elapsed="0.002281"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords_datadriven">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.118360" elapsed="0.000275"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.118752" elapsed="0.000228"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.118026" elapsed="0.001043"/>
+</kw>
+<kw name="And the error should contain &quot;${expected_error}&quot;" owner="bmi_keywords_datadriven" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.119519" elapsed="0.000298"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.119215" elapsed="0.000673"/>
+</kw>
+<arg>175</arg>
+<arg>xyz</arg>
+<arg>Please enter valid numbers</arg>
+<doc>Verifies an error case in BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.114619" elapsed="0.005315"/>
+</kw>
+<kw name="Verify BMI Error Case">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.120781" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.120685" elapsed="0.000147"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.120436" elapsed="0.000455"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.121614" level="INFO">${result} = (None, 'Error: Height must be a positive number')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.121410" elapsed="0.000231"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.121967" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.121757" elapsed="0.000254"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.122363" level="INFO">${BMI_CATEGORY} = Error: Height must be a positive number</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.122152" elapsed="0.000254"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.122780" level="INFO">BMI Result: (None, 'Error: Height must be a positive number')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.122517" elapsed="0.000309"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.123087" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.122931" elapsed="0.000205"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.123371" level="INFO">BMI Category: Error: Height must be a positive number</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.123240" elapsed="0.000174"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.121072" elapsed="0.002398"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords_datadriven">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.123863" elapsed="0.000294"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.124272" elapsed="0.000221"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.123605" elapsed="0.000952"/>
+</kw>
+<kw name="And the error should contain &quot;${expected_error}&quot;" owner="bmi_keywords_datadriven" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.124991" elapsed="0.000323"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.124691" elapsed="0.000700"/>
+</kw>
+<arg>0</arg>
+<arg>70</arg>
+<arg>Height must be a positive number</arg>
+<doc>Verifies an error case in BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.120098" elapsed="0.005365"/>
+</kw>
+<kw name="Verify BMI Error Case">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.126703" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.126578" elapsed="0.000174"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.126189" elapsed="0.000624"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.127553" level="INFO">${result} = (None, 'Error: Height must be a positive number')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.127349" elapsed="0.000232"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.127921" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.127701" elapsed="0.000264"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.128305" level="INFO">${BMI_CATEGORY} = Error: Height must be a positive number</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.128093" elapsed="0.000255"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.128597" level="INFO">BMI Result: (None, 'Error: Height must be a positive number')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.128460" elapsed="0.000184"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.128942" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.128803" elapsed="0.000185"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.129244" level="INFO">BMI Category: Error: Height must be a positive number</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.129110" elapsed="0.000179"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.126980" elapsed="0.002366"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords_datadriven">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.129737" elapsed="0.000279"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.130152" elapsed="0.000226"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.129483" elapsed="0.000963"/>
+</kw>
+<kw name="And the error should contain &quot;${expected_error}&quot;" owner="bmi_keywords_datadriven" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.130890" elapsed="0.000325"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.130584" elapsed="0.000704"/>
+</kw>
+<arg>-10</arg>
+<arg>70</arg>
+<arg>Height must be a positive number</arg>
+<doc>Verifies an error case in BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.125666" elapsed="0.005668"/>
+</kw>
+<kw name="Verify BMI Error Case">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.132184" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.132085" elapsed="0.000146"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.131810" elapsed="0.000479"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.133028" level="INFO">${result} = (None, 'Error: Weight must be a positive number')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.132826" elapsed="0.000247"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.133406" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.133192" elapsed="0.000257"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.133766" level="INFO">${BMI_CATEGORY} = Error: Weight must be a positive number</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.133559" elapsed="0.000249"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.134211" level="INFO">BMI Result: (None, 'Error: Weight must be a positive number')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.133920" elapsed="0.000337"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.134496" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.134362" elapsed="0.000178"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.134770" level="INFO">BMI Category: Error: Weight must be a positive number</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.134641" elapsed="0.000172"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.132471" elapsed="0.002397"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords_datadriven">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.135265" elapsed="0.000318"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.135747" elapsed="0.000348"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.135001" elapsed="0.001198"/>
+</kw>
+<kw name="And the error should contain &quot;${expected_error}&quot;" owner="bmi_keywords_datadriven" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.136696" elapsed="0.000307"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.136379" elapsed="0.000728"/>
+</kw>
+<arg>175</arg>
+<arg>0</arg>
+<arg>Weight must be a positive number</arg>
+<doc>Verifies an error case in BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.131477" elapsed="0.005681"/>
+</kw>
+<kw name="Verify BMI Error Case">
+<kw name="Given the BMI calculator is available" owner="bmi_keywords_datadriven">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.138002" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.137895" elapsed="0.000190"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.137645" elapsed="0.000506"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg" owner="bmi_keywords_datadriven" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-17T07:52:08.138854" level="INFO">${result} = (None, 'Error: Weight must be a positive number')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.138655" elapsed="0.000227"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.139247" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.139005" elapsed="0.000331"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.139670" level="INFO">${BMI_CATEGORY} = Error: Weight must be a positive number</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.139455" elapsed="0.000259"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.139959" level="INFO">BMI Result: (None, 'Error: Weight must be a positive number')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.139822" elapsed="0.000183"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.140277" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.140139" elapsed="0.000183"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-17T07:52:08.140560" level="INFO">BMI Category: Error: Weight must be a positive number</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.140426" elapsed="0.000179"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.138316" elapsed="0.002348"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords_datadriven">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.141081" elapsed="0.000288"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.141494" elapsed="0.000225"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.140801" elapsed="0.000987"/>
+</kw>
+<kw name="And the error should contain &quot;${expected_error}&quot;" owner="bmi_keywords_datadriven" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.142292" elapsed="0.000453"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.141928" elapsed="0.000921"/>
+</kw>
+<arg>175</arg>
+<arg>-60</arg>
+<arg>Weight must be a positive number</arg>
+<doc>Verifies an error case in BMI calculation</doc>
+<status status="PASS" start="2025-04-17T07:52:08.137302" elapsed="0.005597"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords_datadriven" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-17T07:52:08.143428" elapsed="0.000096"/>
+</kw>
+<status status="PASS" start="2025-04-17T07:52:08.143144" elapsed="0.000445"/>
+</kw>
+<doc>Tests error scenarios using a test template</doc>
+<status status="PASS" start="2025-04-17T07:52:08.093865" elapsed="0.049761"/>
+</test>
+<doc>Data-driven tests for BMI calculator</doc>
+<status status="PASS" start="2025-04-17T07:52:08.011415" elapsed="0.132822"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="BMICTests datadriven" id="s1" pass="2" fail="0" skip="0">BMICTests datadriven</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
