@@ -39,8 +39,8 @@ jobs:
     - name: Copy test results from container
       if: always()
       run: |
-        docker cp --verbose bmi-tests:/app/test-results/robotDatadriven ./tests/test-results/robotDatadriven/
-        docker cp --verbose bmi-tests:/app/test-results/robotGherkin ./tests/test-results/robotGherkin/
+        docker cp bmi-tests:/app/test-results/robotDatadriven/ ./tests/test-results/robotDatadriven/
+        docker cp bmi-tests:/app/test-results/robotGherkin/ ./tests/test-results/robotGherkin/
         
     - name: Set up Python
       uses: actions/setup-python@v4
