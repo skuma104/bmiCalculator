@@ -41,12 +41,12 @@ jobs:
       run: |
         docker cp bmi-tests:/app/test-results/robotDatadriven/ ./tests/test-results/robotDatadriven/
         docker cp bmi-tests:/app/test-results/robotGherkin/ ./tests/test-results/robotGherkin/
-        docker exec bmi-tests ls -la /app/test-results/robotDatadriven/
-        docker exec bmi-tests ls -la /app/test-results/robotGherkin/
+        #docker exec bmi-tests ls -la /app/test-results/robotDatadriven/
+        #docker exec bmi-tests ls -la /app/test-results/robotGherkin/
 
         ls -la ./tests/test-results/robotDatadriven/
         ls -la ./tests/test-results/robotGherkin/
-        
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
