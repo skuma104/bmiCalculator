@@ -10,4 +10,6 @@ Contents
 --------
 
 .. toctree::
-   testcases
+   readme
+   usage
+   test_results

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BMICTests" tests="14" errors="0" failures="1" skipped="0" time="0.197" timestamp="2025-04-14T13:47:03.042581">
+<testcase classname="BMICTests" name="Scenario: Calculate BMI for Normal Weight Person" time="0.021">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Calculate BMI for Underweight Person" time="0.011">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Calculate BMI for Overweight Person" time="0.003">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Calculate BMI for Obese Person" time="0.013">
+<failure message="Expected BMI value 32.9 but got 26.0: 26.0 != 32.9" type="AssertionError"/>
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Validate Error for Missing Height" time="0.006">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Validate Error for Missing Weight" time="0.010">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Validate Error for Non-Numeric Height" time="0.003">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Validate Error for Non-Numeric Weight" time="0.011">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Validate Error for Zero Height" time="0.002">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Validate Error for Negative Height" time="0.012">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Validate Error for Zero Weight" time="0.001">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Validate Error for Negative Weight" time="0.013">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Calculate BMI with Boundary Values - Minimum Normal Weight" time="0.006">
+</testcase>
+<testcase classname="BMICTests" name="Scenario: Calculate BMI with Boundary Values - Maximum Normal Weight" time="0.012">
+</testcase>
+<properties>
+<property name="Documentation" value="Gherkin style tests for BMI calculator"/>
+</properties>
+</testsuite>

@@ -1,0 +1,1575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.4 on win32)" generated="2025-04-14T13:47:03.042581" rpa="false" schemaversion="5">
+<suite id="s1" name="BMICTests" source="C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\tests\robotTests\BMICTests.robot">
+<test id="s1-t1" name="Scenario: Calculate BMI for Normal Weight Person" line="8">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.107086" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.107086" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.000000"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.107086" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;175&quot; cm and weight &quot;70&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.107086" level="INFO">${result} = (22.9, 'Normal weight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.107086" level="INFO">${BMI_VALUE} = 22.9</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.122308" level="INFO">${BMI_CATEGORY} = Normal weight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.015222"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.123242" level="INFO">BMI Result: (22.9, 'Normal weight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.123242" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.123242" level="INFO">BMI Value: 22.9</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.123242" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.123242" level="INFO">BMI Category: Normal weight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.123242" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.016156"/>
+</kw>
+<kw name="Then the BMI result should be &quot;22.9&quot;" owner="bmi_keywords" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.125029" level="INFO">${actual_bmi} = 22.9</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.125029" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.125029" level="INFO">${expected} = 22.9</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.125029" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.126041" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.126041" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.123242" elapsed="0.002799"/>
+</kw>
+<kw name="And the BMI category should be &quot;Normal weight&quot;" owner="bmi_keywords" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.126508" elapsed="0.001135"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.126508" elapsed="0.001135"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.127643" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.127643" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.107086" elapsed="0.020557"/>
+</test>
+<test id="s1-t2" name="Scenario: Calculate BMI for Underweight Person" line="14">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.131128" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.130125" elapsed="0.001003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.131128" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.131128" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.130125" elapsed="0.001003"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.132122" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.132122" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.132122" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;180&quot; cm and weight &quot;55&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.133160" level="INFO">${result} = (17.0, 'Underweight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.132122" elapsed="0.001038"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.133823" level="INFO">${BMI_VALUE} = 17.0</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.133160" elapsed="0.000663"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.133823" level="INFO">${BMI_CATEGORY} = Underweight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.133823" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.133823" level="INFO">BMI Result: (17.0, 'Underweight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.133823" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.133823" level="INFO">BMI Value: 17.0</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.133823" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.133823" level="INFO">BMI Category: Underweight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.133823" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.132122" elapsed="0.001701"/>
+</kw>
+<kw name="Then the BMI result should be &quot;17.0&quot;" owner="bmi_keywords" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.137500" level="INFO">${actual_bmi} = 17.0</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.136451" elapsed="0.001049"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.137500" level="INFO">${expected} = 17.0</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.137500" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.138479" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.137500" elapsed="0.000979"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.133823" elapsed="0.004656"/>
+</kw>
+<kw name="And the BMI category should be &quot;Underweight&quot;" owner="bmi_keywords" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.139464" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.138479" elapsed="0.000985"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.140500" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.140500" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.129073" elapsed="0.011427"/>
+</test>
+<test id="s1-t3" name="Scenario: Calculate BMI for Overweight Person" line="20">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.142460" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.142460" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.142460" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.142460" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.141464" elapsed="0.000996"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.143479" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.143479" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.143479" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;165&quot; cm and weight &quot;75&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">${result} = (27.5, 'Overweight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">${BMI_VALUE} = 27.5</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">${BMI_CATEGORY} = Overweight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">BMI Result: (27.5, 'Overweight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">BMI Value: 27.5</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">BMI Category: Overweight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.144479" elapsed="0.000311"/>
+</kw>
+<kw name="Then the BMI result should be &quot;27.5&quot;" owner="bmi_keywords" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">${actual_bmi} = 27.5</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">${expected} = 27.5</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="And the BMI category should be &quot;Overweight&quot;" owner="bmi_keywords" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.141464" elapsed="0.003326"/>
+</test>
+<test id="s1-t4" name="Scenario: Calculate BMI for Obese Person" line="26">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.144790" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.144790" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.144790" elapsed="0.000000"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.152870" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.152870" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.152870" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;170&quot; cm and weight &quot;75&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.153881" level="INFO">${result} = (26.0, 'Overweight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.152870" elapsed="0.001011"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.153881" level="INFO">${BMI_VALUE} = 26.0</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.153881" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.154905" level="INFO">${BMI_CATEGORY} = Overweight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.154905" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.154905" level="INFO">BMI Result: (26.0, 'Overweight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.154905" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.154905" level="INFO">BMI Value: 26.0</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.154905" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.154905" level="INFO">BMI Category: Overweight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.154905" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.152870" elapsed="0.002035"/>
+</kw>
+<kw name="Then the BMI result should be &quot;32.9&quot;" owner="bmi_keywords" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.155971" level="INFO">${actual_bmi} = 26.0</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.155971" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.155971" level="INFO">${expected} = 32.9</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.155971" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.155971" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-04-14T13:47:03.156979" level="FAIL">Expected BMI value 32.9 but got 26.0: 26.0 != 32.9</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2025-04-14T13:47:03.155971" elapsed="0.001008">Expected BMI value 32.9 but got 26.0: 26.0 != 32.9</status>
+</kw>
+<status status="FAIL" start="2025-04-14T13:47:03.155971" elapsed="0.001008">Expected BMI value 32.9 but got 26.0: 26.0 != 32.9</status>
+</kw>
+<kw name="And the BMI category should be &quot;Obese&quot;" owner="bmi_keywords" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<status status="NOT RUN" start="2025-04-14T13:47:03.156979" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.157879" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.157879" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-14T13:47:03.144790" elapsed="0.013089">Expected BMI value 32.9 but got 26.0: 26.0 != 32.9</status>
+</test>
+<test id="s1-t5" name="Scenario: Validate Error for Missing Height" line="32">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.160036" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.160036" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.159613" elapsed="0.000423"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.160036" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;&quot; cm and weight &quot;70&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.160036" level="INFO">${result} = (None, 'Error: Please enter your height')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.160036" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.160036" level="INFO">${BMI_CATEGORY} = Error: Please enter your height</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.160036" level="INFO">BMI Result: (None, 'Error: Please enter your height')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.160036" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.164865" level="INFO">BMI Category: Error: Please enter your height</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.160036" elapsed="0.004829"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<kw name="And the error should contain &quot;Please enter your height&quot;" owner="bmi_keywords" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.158581" elapsed="0.006284"/>
+</test>
+<test id="s1-t6" name="Scenario: Validate Error for Missing Weight" line="38">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.164865" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.164865" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.000000"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.170337" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.170337" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.170337" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;175&quot; cm and weight &quot;&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.171374" level="INFO">${result} = (None, 'Error: Please enter your weight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.171374" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.171374" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.171374" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.172361" level="INFO">${BMI_CATEGORY} = Error: Please enter your weight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.172361" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.172361" level="INFO">BMI Result: (None, 'Error: Please enter your weight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.172361" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.172361" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.172361" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.173345" level="INFO">BMI Category: Error: Please enter your weight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.173345" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.170337" elapsed="0.003008"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.173345" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.173345" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.173345" elapsed="0.001005"/>
+</kw>
+<kw name="And the error should contain &quot;Please enter your weight&quot;" owner="bmi_keywords" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.174350" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.174350" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.175349" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.174350" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.164865" elapsed="0.010484"/>
+</test>
+<test id="s1-t7" name="Scenario: Validate Error for Non-Numeric Height" line="44">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.176348" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.176348" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.177355" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.177355" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.176348" elapsed="0.001007"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.178276" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.177355" elapsed="0.000921"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;abc&quot; cm and weight &quot;70&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.178276" level="INFO">${result} = (None, 'Error: Please enter valid numbers')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.178276" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.178276" level="INFO">${BMI_CATEGORY} = Error: Please enter valid numbers</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.178276" level="INFO">BMI Result: (None, 'Error: Please enter valid numbers')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.178276" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.178276" level="INFO">BMI Category: Error: Please enter valid numbers</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="And the error should contain &quot;Please enter valid numbers&quot;" owner="bmi_keywords" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.175349" elapsed="0.002927"/>
+</test>
+<test id="s1-t8" name="Scenario: Validate Error for Non-Numeric Weight" line="50">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.178276" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.178276" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.000000"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.185661" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.185661" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.185661" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;175&quot; cm and weight &quot;xyz&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.185661" level="INFO">${result} = (None, 'Error: Please enter valid numbers')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.185661" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.186709" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.185661" elapsed="0.001048"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.186709" level="INFO">${BMI_CATEGORY} = Error: Please enter valid numbers</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.186709" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.187731" level="INFO">BMI Result: (None, 'Error: Please enter valid numbers')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.187731" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.187731" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.187731" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.187731" level="INFO">BMI Category: Error: Please enter valid numbers</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.187731" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.185661" elapsed="0.002070"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.188709" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.188709" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.187731" elapsed="0.000978"/>
+</kw>
+<kw name="And the error should contain &quot;Please enter valid numbers&quot;" owner="bmi_keywords" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.188709" elapsed="0.001066"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.188709" elapsed="0.001066"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.189775" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.189775" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.178276" elapsed="0.011499"/>
+</test>
+<test id="s1-t9" name="Scenario: Validate Error for Zero Height" line="56">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.191669" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.191669" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.192670" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.192670" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.191669" elapsed="0.001001"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.193058" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;0&quot; cm and weight &quot;70&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.193058" level="INFO">${result} = (None, 'Error: Height must be a positive number')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.193058" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.193058" level="INFO">${BMI_CATEGORY} = Error: Height must be a positive number</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.193058" level="INFO">BMI Result: (None, 'Error: Height must be a positive number')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.193058" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.193058" level="INFO">BMI Category: Error: Height must be a positive number</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="And the error should contain &quot;Height must be a positive number&quot;" owner="bmi_keywords" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.190668" elapsed="0.002390"/>
+</test>
+<test id="s1-t10" name="Scenario: Validate Error for Negative Height" line="62">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.193058" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.200609" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.007551"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.007551"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.200826" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.200826" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.200826" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;-10&quot; cm and weight &quot;70&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.201352" level="INFO">${result} = (None, 'Error: Height must be a positive number')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.201352" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.201352" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.201352" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.202446" level="INFO">${BMI_CATEGORY} = Error: Height must be a positive number</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.201352" elapsed="0.001094"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.202446" level="INFO">BMI Result: (None, 'Error: Height must be a positive number')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.202446" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.202446" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.202446" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.202446" level="INFO">BMI Category: Error: Height must be a positive number</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.202446" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.201352" elapsed="0.001094"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.203382" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.203382" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.203382" elapsed="0.000000"/>
+</kw>
+<kw name="And the error should contain &quot;Height must be a positive number&quot;" owner="bmi_keywords" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.204360" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.204360" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.205360" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.205360" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.193058" elapsed="0.012302"/>
+</test>
+<test id="s1-t11" name="Scenario: Validate Error for Zero Weight" line="68">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.207238" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;175&quot; cm and weight &quot;0&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">${result} = (None, 'Error: Weight must be a positive number')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">${BMI_CATEGORY} = Error: Weight must be a positive number</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">BMI Result: (None, 'Error: Weight must be a positive number')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">BMI Category: Error: Weight must be a positive number</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="And the error should contain &quot;Weight must be a positive number&quot;" owner="bmi_keywords" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.206361" elapsed="0.000877"/>
+</test>
+<test id="s1-t12" name="Scenario: Validate Error for Negative Weight" line="74">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.207238" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.207238" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.000000"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.216146" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.216146" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.216146" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;175&quot; cm and weight &quot;-60&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.216917" level="INFO">${result} = (None, 'Error: Weight must be a positive number')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.216917" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.216917" level="INFO">${BMI_VALUE} = None</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.216917" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.217926" level="INFO">${BMI_CATEGORY} = Error: Weight must be a positive number</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.216917" elapsed="0.001009"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.217926" level="INFO">BMI Result: (None, 'Error: Weight must be a positive number')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.217926" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.217926" level="INFO">BMI Value: None</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.217926" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.217926" level="INFO">BMI Category: Error: Weight must be a positive number</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.217926" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.216917" elapsed="0.001009"/>
+</kw>
+<kw name="Then an error should be reported" owner="bmi_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_VALUE}</arg>
+<arg>${None}</arg>
+<arg>msg=Expected an error (None BMI value) but got: ${BMI_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.218924" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>Error</arg>
+<arg>msg=Expected error message but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.218924" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.217926" elapsed="0.000998"/>
+</kw>
+<kw name="And the error should contain &quot;Weight must be a positive number&quot;" owner="bmi_keywords" source_name="the error should contain &quot;${expected_text}&quot;">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_text}</arg>
+<arg>ignore_case=True</arg>
+<arg>msg=Expected error message containing '${expected_text}' but got: ${BMI_CATEGORY}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.218924" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.218924" elapsed="0.001000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.219924" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.219924" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.207238" elapsed="0.012686"/>
+</test>
+<test id="s1-t13" name="Scenario: Calculate BMI with Boundary Values - Minimum Normal Weight" line="80">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.222926" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.222926" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.223927" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.223927" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.221924" elapsed="0.002003"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.223927" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.223927" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.223927" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;170&quot; cm and weight &quot;53.5&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.224924" level="INFO">${result} = (18.5, 'Normal weight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.224924" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.225925" level="INFO">${BMI_VALUE} = 18.5</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.224924" elapsed="0.001001"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.225925" level="INFO">${BMI_CATEGORY} = Normal weight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.225925" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.225925" level="INFO">BMI Result: (18.5, 'Normal weight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.225925" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.225925" level="INFO">BMI Value: 18.5</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.225925" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.226926" level="INFO">BMI Category: Normal weight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.224924" elapsed="0.002002"/>
+</kw>
+<kw name="Then the BMI result should be &quot;18.5&quot;" owner="bmi_keywords" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.226926" level="INFO">${actual_bmi} = 18.5</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.226926" level="INFO">${expected} = 18.5</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.226926" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<kw name="And the BMI category should be &quot;Normal weight&quot;" owner="bmi_keywords" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.220926" elapsed="0.006000"/>
+</test>
+<test id="s1-t14" name="Scenario: Calculate BMI with Boundary Values - Maximum Normal Weight" line="86">
+<kw name="Setup BMI Test" owner="bmi_keywords" type="SETUP">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-04-14T13:47:03.226926" level="INFO" html="true">File '&lt;a href="file://C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py"&gt;C:\Users\skuma104\OneDrive - Capgemini\Documents\Innovation-Project\BMI_calculator\source_code\BMI_calculator.py&lt;/a&gt;' exists.</msg>
+<arg>${BMI_MODULE}</arg>
+<arg>msg=BMI calculator module not found at ${BMI_MODULE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.232536" level="INFO">Setting up test for BMI calculator</msg>
+<arg>Setting up test for BMI calculator</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.232536" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.005610"/>
+</kw>
+<kw name="Given the BMI calculator is available" owner="bmi_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.232536" level="INFO">Verified BMI calculator is available</msg>
+<arg>Verified BMI calculator is available</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.232536" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.232536" elapsed="0.000000"/>
+</kw>
+<kw name="When I calculate BMI with height &quot;170&quot; cm and weight &quot;72.2&quot; kg" owner="bmi_keywords" source_name="I calculate BMI with height &quot;${height}&quot; cm and weight &quot;${weight}&quot; kg">
+<kw name="Calculate Bmi" owner="BMI_calculator">
+<msg time="2025-04-14T13:47:03.233542" level="INFO">${result} = (25.0, 'Overweight')</msg>
+<var>${result}</var>
+<arg>${height}</arg>
+<arg>${weight}</arg>
+<doc>Calculate BMI (Body Mass Index) and determine the weight category.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.233542" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.233542" level="INFO">${BMI_VALUE} = 25.0</msg>
+<arg>${BMI_VALUE}</arg>
+<arg>${result}[0]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.233542" elapsed="0.000000"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.234543" level="INFO">${BMI_CATEGORY} = Overweight</msg>
+<arg>${BMI_CATEGORY}</arg>
+<arg>${result}[1]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.234543" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.234543" level="INFO">BMI Result: (25.0, 'Overweight')</msg>
+<arg>BMI Result: ${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.234543" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.234543" level="INFO">BMI Value: 25.0</msg>
+<arg>BMI Value: ${BMI_VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.234543" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.234543" level="INFO">BMI Category: Overweight</msg>
+<arg>BMI Category: ${BMI_CATEGORY}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.234543" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.233542" elapsed="0.001001"/>
+</kw>
+<kw name="Then the BMI result should be &quot;25.0&quot;" owner="bmi_keywords" source_name="the BMI result should be &quot;${expected_bmi}&quot;">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.235569" level="INFO">${actual_bmi} = 25.0</msg>
+<var>${actual_bmi}</var>
+<arg>"${BMI_VALUE}" == "None"</arg>
+<arg>None</arg>
+<arg>${BMI_VALUE}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.235569" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.235569" level="INFO">${expected} = 25.0</msg>
+<var>${expected}</var>
+<arg>"${expected_bmi}" == "None"</arg>
+<arg>None</arg>
+<arg>${expected_bmi}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.235569" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-04-14T13:47:03.235569" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_bmi}</arg>
+<arg>${expected}</arg>
+<arg>msg=Expected BMI value ${expected} but got ${actual_bmi}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.235569" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.235569" elapsed="0.000000"/>
+</kw>
+<kw name="And the BMI category should be &quot;Overweight&quot;" owner="bmi_keywords" source_name="the BMI category should be &quot;${expected_category}&quot;">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${BMI_CATEGORY}</arg>
+<arg>${expected_category}</arg>
+<arg>msg=Expected category ${expected_category} but got ${BMI_CATEGORY}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.236594" elapsed="0.000984"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.236594" elapsed="0.000984"/>
+</kw>
+<kw name="Cleanup BMI Test" owner="bmi_keywords" type="TEARDOWN">
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2025-04-14T13:47:03.238582" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.237578" elapsed="0.001004"/>
+</kw>
+<status status="PASS" start="2025-04-14T13:47:03.226926" elapsed="0.011656"/>
+</test>
+<doc>Gherkin style tests for BMI calculator</doc>
+<status status="FAIL" start="2025-04-14T13:47:03.042581" elapsed="0.196997"/>
+</suite>
+<statistics>
+<total>
+<stat pass="13" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="BMICTests" id="s1" pass="13" fail="1" skip="0">BMICTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
