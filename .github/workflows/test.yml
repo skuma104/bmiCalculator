@@ -54,8 +54,8 @@ jobs:
     - name: Convert to JUnit format
       if: always()
       run: |
-        python -m robot.rebot --xunit ./tests/test-results/robotDatadriven/junit.xml ./tests/test-results/robotDatadriven/output.xml
-        python -m robot.rebot --xunit ./tests/test-results/robotGherkin/junit.xml ./tests/test-results/robotGherkin/output.xml
+        python -m robot.rebot --verbose --xunit ./tests/test-results/robotDatadriven/junit.xml ./tests/test-results/robotDatadriven/output.xml
+        python -m robot.rebot --verbose --xunit ./tests/test-results/robotGherkin/junit.xml ./tests/test-results/robotGherkin/output.xml
         
     - name: Upload test results
       if: always()
